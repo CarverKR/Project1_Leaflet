@@ -1569,25 +1569,11 @@ var geojsonFeature12 = {
   ]
 }
 
-var feat12 = L.geoJSON(geojsonFeature12).addTo(mymap);
-
-$.getJSON(geojsonFeature12),function(data){
 L.geoJson(geojsonFeature12,{
     pointToLayer: function(feature, latlng){
-	    return L.marker();
+   return L.marker(latlng);
     },
     onEachFeature: function (feature, layer) {
-      layer.bindPopup('<h1>Title: '+feature.properties.PublicTransportation+'</h1>');
+      layer.bindPopup('<h4>'+feature.properties.PublicTransportation+'</h4>');
     }
   }).addTo(mymap);
-};
-
-//var i;
-  //  for (i = 0; i < amount; i++) {
-
-    //var marker = L.marker[geojsonFeature12.features[i].geometry.coordinates].addTo(mymap); 
-      
-//marker.bindPopup(geojsonFeature12.features[i].properties.PublicTransportation).openPopup();
-  //  }
-
-//Popups for loop on public transportation does not work
